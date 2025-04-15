@@ -1,0 +1,35 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserProfile {
+  id        Int    @id @default(autoincrement())
+  slug      String @unique
+
+  wishlists Wishlist[]
+}
+
+model Wishlist {
+  id        Int @id @default(autoincrement())
+  name      String
+  slug      String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ownerId   Int
+  owner     UserProfile @relation(fields: [ownerId], references: [id])
+
+  items     Item[] @relation("ItemWishlists")
+}
+
+model Item {
+  id        Int @id @default(autoincrement())
+  name      String
+  price     Decimal
+  source    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  wishlists Wishlist[] @relation("ItemWishlists")
+}
+
