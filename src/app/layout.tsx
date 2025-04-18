@@ -3,8 +3,6 @@ import type { Metadata } from "next"
 import "./globals.css"
 import TopBar from "@/components/top-bar";
 import NavigationBar from "@/components/navigation-bar";
-import {createClientForServer} from "@/utils/supabase/server";
-import {redirect} from "next/navigation";
 
 
 export const metadata: Metadata = {
