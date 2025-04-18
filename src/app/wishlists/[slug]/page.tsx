@@ -1,7 +1,9 @@
 import WishlistDetailScreen from "@/components/wishlist-detail";
 
-export default function WishlistDetailPage({ params }: { params: { slug: string } }) {
+export default async function WishlistDetailPage({params}: { params: Promise<{ slug: string }> }
+) {
+    const { slug } = await params
     return (
-        <WishlistDetailScreen slug={params.slug} />
+        <WishlistDetailScreen slug={slug} />
     )
 }
