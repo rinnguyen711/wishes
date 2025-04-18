@@ -1,2 +1,2 @@
 migrate:
-	prisma migrate dev --name $(msg)
+	prisma migrate dev

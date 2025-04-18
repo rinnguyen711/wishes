@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 import "./globals.css"
 import TopBar from "@/components/top-bar";
 import NavigationBar from "@/components/navigation-bar";
+import {createClientForServer} from "@/utils/supabase/server";
+import {redirect} from "next/navigation";
 
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     description: "Create and manage your wishlists",
 }
 
-export default function RootLayout({
+export default async function RootLayout({
                                        children,
                                    }: Readonly<{
     children: React.ReactNode
@@ -18,7 +20,7 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-        <body className="flex min-h-screen items-center justify-center bg-gray-100 h-screen">
+        <body className="flex min-h-screen items-center justify-center bg-gray-100">
         <div className="mobile-container w-full h-full sm:max-w-[500px]  mx-auto overflow-hidden lg:rounded-3xl bg-white shadow-xl">
             <div className="flex flex-col w-full h-full">
                 {/* Header */}

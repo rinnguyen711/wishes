@@ -1,8 +1,9 @@
 "use client";
 
-import {ArrowLeft, Gift, Settings} from "lucide-react";
+import {ArrowLeft, Gift, Settings, User} from "lucide-react";
 import type React from "react";
 import {usePathname, useRouter} from 'next/navigation'
+import Link from "next/link";
 
 
 export default function TopBar() {
@@ -22,9 +23,11 @@ export default function TopBar() {
                 <Gift className="h-7 w-7 mx-2" />
                 Wishlists
             </h1>
-            <button className="text-gray-800">
-                <Settings className="h-6 w-6" />
+            <Link href="/profile">
+            <button className="text-gray-800 cursor-pointer">
+                <User className="h-6 w-6" />
             </button>
+            </Link>
         </div>
     )
 }

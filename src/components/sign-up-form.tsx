@@ -7,6 +7,7 @@ import { Gift } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {useRouter} from "next/navigation";
+import {loginWithGoogle} from "@/app/login/actions";
 
 export default function SignUpForm() {
     const [email, setEmail] = useState("")
@@ -80,11 +81,12 @@ export default function SignUpForm() {
                     </div>
 
                     <div className="mt-6 grid grid-cols-2 gap-3">
+                            <Button onClick={loginWithGoogle} className="cursor-pointer flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
+                                Google
+                            </Button>
+
                         <button className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                            Google
-                        </button>
-                        <button className="flex items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50">
-                            <span className="text-gray-900">Apple</span>
+                            <span className="text-gray-900">Facebook</span>
                         </button>
                     </div>
                 </div>

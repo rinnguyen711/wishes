@@ -1,6 +1,6 @@
 "use client";
 
-import {Bell, House, Search, User} from "lucide-react";
+import {Bell, House, Search, Users} from "lucide-react";
 import Link from "next/link";
 import type React from "react";
 import {usePathname} from "next/navigation";
@@ -21,8 +21,8 @@ export default function NavigationBar() {
             icon: <Bell/>,
         },
         {
-            path: "/profile",
-            icon: <User/>,
+            path: "/people",
+            icon: <Users/>,
         }
 
     ]
